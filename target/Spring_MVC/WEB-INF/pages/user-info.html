@@ -1,21 +1,66 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:form="http://www.w3.org/1999/xhtml">
-  <head>
-      <meta charset="UTF-8">
-      <title>User info</title>
-  </head>
-  <body>
-    <h2>User Info</h2>
-      <br>
-      <form:form action="saveUser" modelAttribute="newUser">
-        <form:hidden path="id"/>
-        Name <form:input path="name"/>
-        <br><br>
-        Surname <form:input path="surname"/>
-        <br><br>
-        Email <form:input path="email"/>
-        <br><br>
-        <input type="submit" value="create">
-      </form:form>
-  </body>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" th:href="@{/resources/styles.css}">
+  <title>User Info</title>
+</head>
+<body>
+<div class="center">
+  <h2>Update User</h2>
+  <form th:action="@{/updateInfo}" th:method="POST" th:object="${newUser}">
+    <table class="tg new-user">
+      <tr>
+        <td>Name:</td>
+        <td><label>
+          <input type="text" th:field="*{name}" th:value="${newUser.getName}"/>
+        </label></td>
+      </tr>
+      <tr>
+        <td>Surname:</td>
+        <td><label>
+          <input type="text" th:field="*{surname}" th:value="${newUser.surname}"/>
+        </label></td>
+      </tr>
+      <tr>
+        <td>Email:</td>
+        <td><label>
+          <input type="text" th:field="*{email}" th:value="${newUser.email}"/>
+        </label></td>
+      </tr>
+      <tr>
+        <td colspan="2"><input type="submit" value="Update"></td>
+      </tr>
+    </table>
+  </form>
+</div>
+</body>
 </html>
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:form="http://www.w3.org/1999/xhtml">-->
+<!--  <head>-->
+<!--      <meta charset="UTF-8">-->
+<!--      <title>User info</title>-->
+<!--  </head>-->
+<!--  <body>-->
+<!--    <h2>User Info</h2>-->
+<!--      <br>-->
+<!--      <form:form action="saveUser" modelAttribute="newUser">-->
+<!--        <form:hidden path="id"/>-->
+<!--        Name <form:input path="name"/>-->
+<!--        <br><br>-->
+<!--        Surname <form:input path="surname"/>-->
+<!--        <br><br>-->
+<!--        Email <form:input path="email"/>-->
+<!--        <br><br>-->
+<!--        <input type="submit" value="create">-->
+<!--      </form:form>-->
+<!--  </body>-->
+<!--</html>-->

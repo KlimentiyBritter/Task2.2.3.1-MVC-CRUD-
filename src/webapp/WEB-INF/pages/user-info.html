@@ -7,13 +7,13 @@
 </head>
 <body>
 <div class="center">
-  <h2>Update User</h2>
-  <form th:action="@{/updateInfo}" th:method="POST" th:object="${newUser}">
-    <table class="tg new-user">
+  <h2>User info</h2>
+  <form th:action="@{/saveUser}" th:method="POST" th:object="${newUser}">
+    <table class="table">
       <tr>
         <td>Name:</td>
         <td><label>
-          <input type="text" th:field="*{name}" th:value="${newUser.getName}"/>
+          <input type="text" th:field="*{name}" th:value="${newUser.name}"/>
         </label></td>
       </tr>
       <tr>
