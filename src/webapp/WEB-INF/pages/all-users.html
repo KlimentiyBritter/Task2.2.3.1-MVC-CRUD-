@@ -19,18 +19,18 @@
         </tr>
         </thead>
         <tbody>
-        <th:block th:each="userID : ${all}">
+        <th:block th:each="usr : ${all}">
             <tr>
-                <td th:text="${userID.id}">ID</td>
-                <td th:text="${userID.name}">Name</td>
-                <td th:text="${userID.surname}">Surname</td>
-                <td th:text="${userID.email}">Email</td>
+                <td th:text="${usr.id}">ID</td>
+                <td th:text="${usr.name}">Name</td>
+                <td th:text="${usr.surname}">Surname</td>
+                <td th:text="${usr.email}">Email</td>
                 <td class="tg-action">
                     <div>
-                        <a class="link-button" th:href="@{/updateInfo(id=${userID.id})}">Update</a>
+                        <a class="link-button" th:href="@{/updateInfo(userID=${usr.id})}">Update</a>
                     </div>
                     <div>
-                        <a class="link-button" th:href="@{/deleteUser(id=${userID.id})}">Delete</a>
+                        <a class="link-button" th:href="@{/deleteUser(userID=${usr.id})}">Delete</a>
                     </div>
                 </td>
             </tr>
@@ -38,5 +38,7 @@
         </tbody>
     </table>
 </div>
+<input type="button" value="create"
+       onclick="window.location.href = 'addNewUser'"/>
 </body>
 </html>
