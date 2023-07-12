@@ -17,7 +17,7 @@ import java.util.Properties;
 
 
 @Configuration
-@PropertySource("classpath:db.properties")
+@PropertySource(value = "classpath:db.properties")
 @EnableTransactionManagement
 @ComponentScan(value = "web")
 public class AppConfig {
@@ -40,11 +40,9 @@ public class AppConfig {
         managerFactoryBean.setDataSource(getDataSource());
         managerFactoryBean.setPackagesToScan("web");
         managerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
-
         Properties props=new Properties();
         props.put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
         props.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
-
         managerFactoryBean.setJpaProperties(props);
 
         return managerFactoryBean;
